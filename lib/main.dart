@@ -1,5 +1,7 @@
 import 'dart:developer';
 
+import 'package:contents/pages/landing_entry.dart';
+import 'package:contents/pages/login_entry.dart';
 import 'package:contents/providers/preferences.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -37,11 +39,11 @@ class AuthPage extends StatelessWidget {
     // FlutterNativeSplash.remove();
 
     return MaterialApp(
-        home: Scaffold(
-      appBar: AppBar(
-        title: const Text('Inv'),
-      ),
-      body: const Text('Inventory'),
-    ));
+      initialRoute: (user == null) ? LoginEntry.routeName : LandingEntry.routeName,
+      routes: {
+        LoginEntry.routeName: (context) => const LoginEntry(),
+        LandingEntry.routeName: (context) => const LandingEntry(),
+      },
+    );
   }
 }
