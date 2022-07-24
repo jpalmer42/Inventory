@@ -1,0 +1,55 @@
+name: contents
+description: A new Flutter project.
+
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.17.6 <3.0.0"
+
+dependencies:
+  cupertino_icons: ^1.0.2
+  firebase_auth: ^3.5.0
+  firebase_core: ^1.20.0
+  flutter:
+    sdk: flutter
+  flutter_native_splash: ^2.2.5
+  google_sign_in: ^5.4.0
+  provider: ^6.0.3
+  shared_preferences: ^2.0.15
+
+dev_dependencies:
+  flutter_launcher_icons: ^0.9.3
+
+  flutter_lints: ^2.0.0
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+
+flutter_icons:
+  android: true
+  ios: true
+  remove_alpha_ios: true
+  image_path: "assets/ic_launcher.png"
+  adaptive_icon_foreground: "assets/ic_launcher_foreground.png"
+  adaptive_icon_background: "assets/ic_launcher_background.png"
+
+flutter_native_splash:
+  android: true
+  ios: true
+  #color:
+  image: "assets/splash.png"
+  background_image: "assets/splash_bg.png"
+
+  #  color_dark:
+  image_dark: "assets/splash_dark.png"
+  background_image_dark: "assets/splash_dark_bg.png"
+
+  branding: "assets/splash_branding.png"
+  branding_mode: bottomRight
+
+  android_gravity: center
+  ios_content_mode: center
