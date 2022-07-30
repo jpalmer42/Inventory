@@ -1,5 +1,4 @@
-import 'package:contents/pages/login_entry.dart';
-import 'package:contents/services/authentication.dart';
+import 'package:contents/authentication/auth.dart';
 import 'package:flutter/material.dart';
 
 class LandingEntry extends StatelessWidget {
@@ -16,7 +15,7 @@ class LandingEntry extends StatelessWidget {
       body: ElevatedButton.icon(
         onPressed: () => {signOut(context)},
         icon: const Icon(Icons.login, size: 24.0),
-        label: Text('Log Off'),
+        label: Text('Log Off - ${Auth().currentUser?.displayName!}'),
         style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(3)),
         ),
@@ -26,8 +25,7 @@ class LandingEntry extends StatelessWidget {
 
   Future<void> signOut(BuildContext context) async {
     try {
-      await Authentication().signOut();
-      Navigator.pushReplacementNamed(context, LoginEntry.routeName);
+      await Auth().signOut();
     } catch (error) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(

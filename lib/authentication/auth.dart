@@ -1,8 +1,18 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
-class Authentication {
+class Auth {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
+
+  User? get currentUser => _firebaseAuth.currentUser;
+
+  Stream<User?> get authStateChanges => _firebaseAuth.authStateChanges();
+
+  Future<void> signOut() async {
+    await _firebaseAuth.signOut();
+    final googleSignIn = GoogleSignIn();
+    await googleSignIn.signOut();
+  }
 
   Future<User?> signInWithGoogle() async {
     final googleSignIn = GoogleSignIn();
@@ -19,11 +29,5 @@ class Authentication {
     } else {
       throw FirebaseAuthException(message: 'Signin Aborted by User', code: 'ERROR_ABORTED_BY_USER');
     }
-  }
-
-  Future<void> signOut() async {
-    await _firebaseAuth.signOut();
-    final googleSignIn = GoogleSignIn();
-    await googleSignIn.signOut();
   }
 }
