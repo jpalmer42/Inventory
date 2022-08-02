@@ -14,6 +14,16 @@ class LandingEntry extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Inventory'),
+        actions: [
+          ElevatedButton.icon(
+            onPressed: () => {signOut(context)},
+            icon: const Icon(Icons.login, size: 24.0),
+            label: Text('Log Off - ${Auth().currentUser?.displayName!}'),
+            style: ElevatedButton.styleFrom(
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(3)),
+            ),
+          ),
+        ],
       ),
       // body: StreamBuilder(
       //   stream: getUsers(),

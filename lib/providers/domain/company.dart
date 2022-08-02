@@ -17,6 +17,11 @@ class DaoCompany {
         'paymentInfo': paymentInfo.map((x) => x.toJson()),
         'status': status,
       };
+
+  factory DaoCompany.fromJson(Map<String, dynamic> json) => DaoCompany(
+        companyName: json['companyName'],
+        paymentInfo: json['paymentInfo'],
+      );
 }
 
 class PaymentInfo {
@@ -27,10 +32,15 @@ class PaymentInfo {
     this.type = 'primary',
     required this.contactInfo,
   });
+
   Map<String, dynamic> toJson() => {
         'type': type,
         'contactInfo': contactInfo.map((x) => x.toJson()),
       };
+
+  factory PaymentInfo.fromJson(Map<String, dynamic> json) => PaymentInfo(
+        contactInfo: json['contactInfo'],
+      );
 }
 
 class ContactInfo {
