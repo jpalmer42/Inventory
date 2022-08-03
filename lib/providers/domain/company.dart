@@ -14,7 +14,7 @@ class DaoCompany {
   Map<String, dynamic> toJson() => {
         'id': id,
         'companyName': companyName,
-        'paymentInfo': paymentInfo.map((x) => x.toJson()),
+        'paymentInfo': paymentInfo,
         'status': status,
       };
 
@@ -35,7 +35,7 @@ class PaymentInfo {
 
   Map<String, dynamic> toJson() => {
         'type': type,
-        'contactInfo': contactInfo.map((x) => x.toJson()),
+        'contactInfo': contactInfo,
       };
 
   factory PaymentInfo.fromJson(Map<String, dynamic> json) => PaymentInfo(
